@@ -51,25 +51,25 @@
   </tr>
   <tr>
     <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="41" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="41" >
     </th>
     <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="42" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="42" >
     </th>
     <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="43" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="43" >
     </th>
      <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="44" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="44" >
     </th>
     <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="45" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="45" >
     </th>
     <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="46" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="46" >
     </th>
      <th class="di" >
-      <img style="height: 80px; width: 80px; margin-left: 20px; " id="47" src="Без%20названия.png">
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="47" >
     </th>
   </tr>
   <tr>
@@ -100,7 +100,6 @@
 
 </script>
 <script>
-console.log(moment().format('dddd'));
       document.getElementById('4').innerHTML = moment().format('dddd');
       document.getElementById('5').innerHTML = (moment().add(1, 'days').format('dddd'));
        document.getElementById('6').innerHTML = (moment().add(2, 'days').format('dddd'));
@@ -115,8 +114,7 @@ console.log(moment().format('dddd'));
   })
   .then(function(myJson) {
       document.getElementById('2').innerHTML = myJson.main.temp_max + '°C'
-        document.getElementById('1').src = 'http://openweathermap.org/img/wn/' + myJson.weather[0].icon + '@2x.png'
-    console.log(myJson);
+        document.getElementById('1').src = 'https://openweathermap.org/img/wn/' + myJson.weather[0].icon + '@2x.png'
   });
 
   fetch('https://openweathermap.org/data/2.5/forecast/daily?id=1528675&appid=b6907d289e10d714a6e88b30761fae22&cnt=7')
@@ -124,25 +122,25 @@ console.log(moment().format('dddd'));
     return response.json();
   })
   .then(function(myJson) {
-      document.getElementById('41').src = 'http://openweathermap.org/img/wn/' + myJson.list[0].weather[0].icon + '@2x.png'
+      document.getElementById('41').src = 'https://openweathermap.org/img/wn/' + myJson.list[0].weather[0].icon + '@2x.png'
       document.getElementById('67').innerHTML = myJson.list[0].temp.day + '°C'
       document.getElementById('99').innerHTML = myJson.list[0].temp.night + '°C'
-       document.getElementById('42').src = 'http://openweathermap.org/img/wn/' + myJson.list[1].weather[0].icon + '@2x.png'
+       document.getElementById('42').src = 'https://openweathermap.org/img/wn/' + myJson.list[1].weather[0].icon + '@2x.png'
       document.getElementById('66').innerHTML = myJson.list[1].temp.day + '°C'
       document.getElementById('98').innerHTML = myJson.list[1].temp.night + '°C'
-       document.getElementById('43').src = 'http://openweathermap.org/img/wn/' + myJson.list[2].weather[0].icon + '@2x.png'
+       document.getElementById('43').src = 'https://openweathermap.org/img/wn/' + myJson.list[2].weather[0].icon + '@2x.png'
       document.getElementById('65').innerHTML = myJson.list[2].temp.day + '°C'
       document.getElementById('97').innerHTML = myJson.list[2].temp.night + '°C'
-       document.getElementById('44').src = 'http://openweathermap.org/img/wn/' + myJson.list[3].weather[0].icon + '@2x.png'
+       document.getElementById('44').src = 'https://openweathermap.org/img/wn/' + myJson.list[3].weather[0].icon + '@2x.png'
       document.getElementById('64').innerHTML = myJson.list[3].temp.day + '°C'
       document.getElementById('96').innerHTML = myJson.list[3].temp.night + '°C'
-       document.getElementById('45').src = 'http://openweathermap.org/img/wn/' + myJson.list[4].weather[0].icon + '@2x.png'
+       document.getElementById('45').src = 'https://openweathermap.org/img/wn/' + myJson.list[4].weather[0].icon + '@2x.png'
       document.getElementById('63').innerHTML = myJson.list[4].temp.day + '°C'
       document.getElementById('95').innerHTML = myJson.list[4].temp.night + '°C'
-       document.getElementById('46').src = 'http://openweathermap.org/img/wn/' + myJson.list[5].weather[0].icon + '@2x.png'
+       document.getElementById('46').src = 'https://openweathermap.org/img/wn/' + myJson.list[5].weather[0].icon + '@2x.png'
       document.getElementById('62').innerHTML = myJson.list[5].temp.day + '°C'
       document.getElementById('94').innerHTML = myJson.list[5].temp.night + '°C'
-       document.getElementById('47').src = 'http://openweathermap.org/img/wn/' + myJson.list[6].weather[0].icon + '@2x.png'
+       document.getElementById('47').src = 'https://openweathermap.org/img/wn/' + myJson.list[6].weather[0].icon + '@2x.png'
       document.getElementById('61').innerHTML = myJson.list[6].temp.day + '°C'
       document.getElementById('93').innerHTML = myJson.list[6].temp.night + '°C'
     console.log(myJson);
