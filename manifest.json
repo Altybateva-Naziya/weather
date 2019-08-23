@@ -3,14 +3,14 @@
   "name": "forecast",
   "icons": [
     {
-      "src": "/512.png",
+      "src": "/weather/512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/weather.html",
+  "start_url": "/weather/weather.html",
   "background_color": "#3367D6",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/weather/",
   "theme_color": "#3367D6"
 }
