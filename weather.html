@@ -4,7 +4,12 @@
 <link rel="manifest" href="/weather/manifest.json">
     <meta charset="UTF-8">
     <title>weather</title>
+<meta name="theme-color" content="#3367D6">
+  <link rel="icon" sizes="192x192" href="/weather/192.png">
+<meta name="description" content="A sample weather app">
 
+<link rel="apple-touch-icon" href="/weather/192.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
     .di{
         font-size: 20px;
@@ -96,6 +101,16 @@
     </th>
   </tr>
 </table>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/weather/service-worker.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+  });
+}
+</script>
 <script src="moment-with-locales.js">
 
 </script>
