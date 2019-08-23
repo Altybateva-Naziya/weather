@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='manifest' href='/manifest.json'>
+    <meta charset="UTF-8">
+    <title>weather</title>
+
+<style>
+    .di{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Rage Italic";
+        padding: 5px;
+      border: 2px black solid
+    }
+  .mi{
+    font-size: 20px;
+        font-weight: bold;
+        font-family: "Rage Italic";
+        padding: 15px;
+    color: #454545;
+    border: 2px black solid
+  }
+  .li{
+    font-size: 20px;
+        font-weight: bold;
+        font-family: "Rage Italic";
+    margin-top: 4px;
+        padding: 15px;
+    color: #858585;
+    border: 2px black solid
+  }
+</style>
+</head>
+<body>
+<h1 style=" font-size: 40px; font-weight: bold; margin-top: 20px; margin-left: 100px; color: #343434">Bishkek</h1>
+<h2 id="3" style="font-size: 30px; font-weight: bold; margin-top: 10px;  margin-left: 110px; color: #343434"></h2>
+<div style="display: flex; flex-direction: row; align-items: center; margin-top: -10px">
+<img style="height: 100px;  width: 100px; margin-left: 50px " id="1" src="Без%20названия.png">
+<h1 style="font-size: 64px; font-weight: bold;" id="2"></h1>
+</div>
+<table style="border: 3px black solid">
+  <tr>
+    <th id="4" class="di" ></th>
+    <th id="5" class="di"></th>
+    <th id="6" class="di"></th>
+      <th id="7" class="di"></th>
+    <th id="8" class="di"></th>
+    <th id="9" class="di"></th>
+      <th id="10" class="di"></th>
+  </tr>
+  <tr>
+    <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="41" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="42" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="43" src="Без%20названия.png">
+    </th>
+     <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="44" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="45" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="46" src="Без%20названия.png">
+    </th>
+     <th class="di" >
+      <img style="height: 80px; width: 80px; margin-left: 20px; " id="47" src="Без%20названия.png">
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <div class="mi" id="67"></div><div class="li" id="99"></div>
+    </th>
+    <th >
+      <div class="mi" id="66"></div><div class="li" id="98"></div>
+    </th>
+    <th >
+      <div class="mi" id="65"></div><div class="li" id="97"></div>
+    </th>
+     <th>
+       <div class="mi" id="64"></div><div class="li" id="96"></div>
+    </th>
+    <th >
+      <div class="mi" id="63"></div><div class="li" id="95"></div>
+    </th>
+    <th>
+      <div class="mi" id="62"></div><div class="li" id="94"></div>
+    </th>
+     <th>
+    <div class="mi" id="61"></div><div class="li" id="93"></div>
+    </th>
+  </tr>
+</table>
+<script src="moment-with-locales.js">
+
+</script>
+<script>
+console.log(moment().format('dddd'));
+      document.getElementById('4').innerHTML = moment().format('dddd');
+      document.getElementById('5').innerHTML = (moment().add(1, 'days').format('dddd'));
+       document.getElementById('6').innerHTML = (moment().add(2, 'days').format('dddd'));
+        document.getElementById('7').innerHTML = (moment().add(3, 'days').format('dddd'));
+         document.getElementById('8').innerHTML = (moment().add(4, 'days').format('dddd'));
+          document.getElementById('9').innerHTML = (moment().add(5, 'days').format('dddd'));
+           document.getElementById('10').innerHTML = (moment().add(6, 'days').format('dddd'));
+            document.getElementById('3').innerHTML = moment().format('dddd');
+    fetch('https://openweathermap.org/data/2.5/weather?q=Bishkek&appid=b6907d289e10d714a6e88b30761fae22')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+      document.getElementById('2').innerHTML = myJson.main.temp_max + '°C'
+        document.getElementById('1').src = 'http://openweathermap.org/img/wn/' + myJson.weather[0].icon + '@2x.png'
+    console.log(myJson);
+  });
+
+  fetch('https://openweathermap.org/data/2.5/forecast/daily?id=1528675&appid=b6907d289e10d714a6e88b30761fae22&cnt=7')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+      document.getElementById('41').src = 'http://openweathermap.org/img/wn/' + myJson.list[0].weather[0].icon + '@2x.png'
+      document.getElementById('67').innerHTML = myJson.list[0].temp.day + '°C'
+      document.getElementById('99').innerHTML = myJson.list[0].temp.night + '°C'
+       document.getElementById('42').src = 'http://openweathermap.org/img/wn/' + myJson.list[1].weather[0].icon + '@2x.png'
+      document.getElementById('66').innerHTML = myJson.list[1].temp.day + '°C'
+      document.getElementById('98').innerHTML = myJson.list[1].temp.night + '°C'
+       document.getElementById('43').src = 'http://openweathermap.org/img/wn/' + myJson.list[2].weather[0].icon + '@2x.png'
+      document.getElementById('65').innerHTML = myJson.list[2].temp.day + '°C'
+      document.getElementById('97').innerHTML = myJson.list[2].temp.night + '°C'
+       document.getElementById('44').src = 'http://openweathermap.org/img/wn/' + myJson.list[3].weather[0].icon + '@2x.png'
+      document.getElementById('64').innerHTML = myJson.list[3].temp.day + '°C'
+      document.getElementById('96').innerHTML = myJson.list[3].temp.night + '°C'
+       document.getElementById('45').src = 'http://openweathermap.org/img/wn/' + myJson.list[4].weather[0].icon + '@2x.png'
+      document.getElementById('63').innerHTML = myJson.list[4].temp.day + '°C'
+      document.getElementById('95').innerHTML = myJson.list[4].temp.night + '°C'
+       document.getElementById('46').src = 'http://openweathermap.org/img/wn/' + myJson.list[5].weather[0].icon + '@2x.png'
+      document.getElementById('62').innerHTML = myJson.list[5].temp.day + '°C'
+      document.getElementById('94').innerHTML = myJson.list[5].temp.night + '°C'
+       document.getElementById('47').src = 'http://openweathermap.org/img/wn/' + myJson.list[6].weather[0].icon + '@2x.png'
+      document.getElementById('61').innerHTML = myJson.list[6].temp.day + '°C'
+      document.getElementById('93').innerHTML = myJson.list[6].temp.night + '°C'
+    console.log(myJson);
+  });
+</script>
+</body>
+</html>
